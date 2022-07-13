@@ -14,20 +14,9 @@ target_link_libraries(
 	PRIVATE component-foo
 )
 
+# Following is a bad pattern as it doesn't work with Multi config generators
+# like Ninja Multi-Config. But it's the only found way for now.
 
-if(BUILD_TESITNG)
-	add_executable(
-		component-boo-test-basic
-		tests/boo_tests.cc
-	)
-
-	target_link_libraries(
-		component-boo-test-basic
-		PRIVATE component-boo
-		PRIVATE component-foo
-		GTest::gtest_main
-	)
-
-	include(GoogleTest)
-	gtest_discover_tests(component-boo-test-basic)
+if(CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")
+	add_subdirectory(tests)
 endif()
