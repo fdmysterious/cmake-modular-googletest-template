@@ -28,3 +28,21 @@ The ideal workflow is to generate two build folders, for instance:
 > cd build-tests
 > ctest
 ```
+
+Using the docker image
+----------------------
+
+A docker image is provided as an example on how a specific docker environment can be built
+for component testing.
+
+**First, build the docker image**:
+
+```bash
+> docker build -t buildenv:componentTesting -f docker/Dockerfile_componentTesting ./docker
+```
+
+**Then, run the tests using the provided script**
+
+```bash
+> ./run_tests_docker.sh
+```
