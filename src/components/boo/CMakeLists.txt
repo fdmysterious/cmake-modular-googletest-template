@@ -14,7 +14,7 @@ target_link_libraries(
 	PRIVATE component-foo
 )
 
-# Following is a bad pattern as it doesn't work with Multi config generators
+# Following doesn't work with Multi config generators
 # like Ninja Multi-Config. But it's the only found way for now.
 
 if(CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")

@@ -4,8 +4,7 @@ project(TestComponents)
 set(COMPONENTS_PATH ${PROJECT_SOURCE_DIR}/components)
 
 # If testing enabled, set toolchain and import googletest
-# The following is a bad pattern, as it doesn't work with 
-# multi-config generators such as Ninja Multi-Config
+# The following doesn't work with Multi-config generators
 if(CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")
 	# Add testing
 	include(CTest)
