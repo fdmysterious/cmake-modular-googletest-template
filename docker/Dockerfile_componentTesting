@@ -1,2 +1,5 @@
 FROM alpine:3.14
 RUN apk add musl-dev ninja cmake gcc g++ git python3
+
+# For clang-tidy
+RUN apk add clang clang-extra-tools

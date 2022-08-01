@@ -10,8 +10,11 @@ if(CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")
 	# Add testing
 	include(CTest)
 
+	#Add linting using clang-tidy
+	include(${PROJECT_SOURCE_DIR}/config/ClangTidyConfig.cmake)
+
 	# Set toolchain to compile for host
-	set(CMAKE_TOOLCHAIN_FILE "../cmake/toolchain_host.cmake")
+	#set(CMAKE_TOOLCHAIN_FILE "../cmake/toolchain_host.cmake")
 
 	# Include google tests
 	set(CMAKE_CXX_STANDARD 14)
