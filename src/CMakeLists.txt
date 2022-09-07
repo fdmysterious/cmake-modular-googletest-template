@@ -10,7 +10,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")
 	include(CTest)
 
 	#Add linting using clang-tidy
-	include(${PROJECT_SOURCE_DIR}/config/ClangTidyConfig.cmake)
+	include(${PROJECT_SOURCE_DIR}/__config/ClangTidyConfig.cmake)
 
 	# Set toolchain to compile for host
 	#set(CMAKE_TOOLCHAIN_FILE "../cmake/toolchain_host.cmake")
