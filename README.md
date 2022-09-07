@@ -46,3 +46,14 @@ for component testing.
 ```bash
 > ./run_tests_docker.sh
 ```
+
+Test logs are then available in the `logs` folder:
+- `build.log`: output from compilation process
+- `clang-tidy.log`: output from `clang-tidy` tool
+- `tests.log`: output from `ctest` execution
+- `GTest_Output`: output logs from GoogleTest
+
+TODO
+----
+
+- Add test coverage information using `gcov` and `lcov`

@@ -1,0 +1,8 @@
+# This is an example clang tidy config. The "Checks" variable is set using the ClangTidyConfig.cmake file.
+CheckOptions:
+  - {key: readability-identifier-naming.GlobalConstantCase,  value: UPPER_CASE      }
+  - {key: readability_identifier-naming.StructCase,          value: lower_case      }
+  - {key: readability-identifier-naming.EnumCase,            value: Camel_Snake_Case}
+  - {key: readability-identifier-naming.EnumConstantCase,    value: UPPER_CASE      }
+  - {key: readability-identifier-naming.FunctionCase,        value: lower_case      }
+  - {key: readability-identifier-naming.VariableCase,        value: lower_case      }

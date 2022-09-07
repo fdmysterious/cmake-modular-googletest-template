@@ -22,7 +22,9 @@ message(STATUS "Clang TIDY checks: ${CLANG_TIDY_CHECKS}")
 message(STATUS "Clang TIDY errors: ${CLANG_TIDY_ERRORS}")
 
 set(CMAKE_C_CLANG_TIDY
-    clang-tidy;
+    /bin/ash;
+    $ENV{BUILD_PWD}/scripts/tidy.sh;
+    ${PROJECT_SOURCE_DIR}/__config/clang-tidy-config.yml;
     --header-filter=.;
     --checks=${CLANG_TIDY_CHECKS};
     --warnings-as-errors=${CLANG_TIDY_ERRORS};
