@@ -47,7 +47,7 @@ if(NOT CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")
 	target_link_libraries(
 		bar
 		PRIVATE 
-		component-foo
-		component-boo
+		component::foo
+		component::boo
 	)
 endif()
