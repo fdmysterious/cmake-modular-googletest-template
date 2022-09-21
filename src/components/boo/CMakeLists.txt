@@ -1,18 +1,18 @@
 cmake_minimum_required(VERSION 3.17)
-project(ComponentBoo)
+project(component::boo)
 
 include_directories(
 	${COMPONENTS_PATH}
 )
 
-add_library(component-boo STATIC
-	boo.c
-)
+string(REPLACE "::" "-" TARGET_LIB ${PROJECT_NAME})
+add_library(${TARGET_LIB} STATIC boo.c)
+add_library(${PROJECT_NAME} ALIAS ${TARGET_LIB})
 
-target_link_libraries(
-	component-boo
-	PRIVATE component-foo
-)
+#target_link_libraries(
+#	${TARGET_LIB}
+#	INTERFACE component::foo
+#)
 
 # Following doesn't work with Multi config generators
 # like Ninja Multi-Config. But it's the only found way for now.
@@ -20,3 +20,4 @@ target_link_libraries(
 if(CMAKE_BUILD_TYPE STREQUAL "ComponentTesting")
 	add_subdirectory(tests)
 endif()
+

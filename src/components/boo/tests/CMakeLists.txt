@@ -1,23 +1,24 @@
 cmake_minimum_required(VERSION 3.17)
-project(ComponentBoo_Tests)
+project(component::boo::tests)
 
 include_directories(
 	${COMPONENTS_PATH}
 )
 
 if(BUILD_TESTING)
+	string(REPLACE "::" "-" TARGET_EXE ${PROJECT_NAME})
 	add_executable(
-		component-boo-test-basic
+		${TARGET_EXE}
 		boo_tests.cc
 	)
 
 	target_link_libraries(
-		component-boo-test-basic
-		PRIVATE component-boo
-		PRIVATE component-foo
-		GTest::gtest_main
+		${TARGET_EXE}
+		PRIVATE component::boo
+		PRIVATE component::foo
+		PUBLIC  GTest::gtest_main
 	)
 
 	include(GoogleTest)
-	gtest_discover_tests(component-boo-test-basic)
+	gtest_discover_tests(${TARGET_EXE})
 endif()
